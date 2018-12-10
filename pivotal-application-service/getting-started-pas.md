@@ -1,5 +1,5 @@
 # Pivotal Application Service on AWS
-AWS 상에 Pivotal Application Service를 구축하는 핸즈온 입니다.
+AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 
 # 사전 준비 사항
 * AWS 계정 생성 - https://aws.amazon.com/ko/premiumsupport/knowledge-center/create-and-activate-aws-account
@@ -115,8 +115,8 @@ UAA client 4.1.0
 * 위에서 생성한 bbl-policy 정책을 설정
 
 ### Jumpbox 내 환경 변수 설정
-* 위에서 생성한 bbl IAM 계정의 Access Key ID, Secret Access Key 입력
-* PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
+* BBL_ACCESS_KEY_ID, BBL_SECRET_ACCESS_KEY 변수들에 위에서 생성한 bbl IAM 계정의 Access Key ID, Secret Access Key 입력
+* REGION 변수에 PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
 ```
 BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
 BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
