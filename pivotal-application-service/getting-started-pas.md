@@ -161,6 +161,19 @@ User               admin
 
 Succeeded
 ```
+#### External Host 환경 변수 설정
+1. External Host 값 확인
+```
+cd ~/workspace/bbl
+ubuntu@ip-0-0-0-0:~/workspace/bbl$ bbl lbs
+Concourse LB: bbl-xxx-xx-xxxxx-concourse-lb [bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-1.amazonaws.com]
+```
+
+2. External Host 값 설정
+1번 단계에서 나온 출력 결과의 []안에 있는 값을 EXTERNAL_HOST 변수에 설정
+```
+export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-1.amazonaws.com
+```
 
 
 # 참고
