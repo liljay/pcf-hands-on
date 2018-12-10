@@ -87,11 +87,7 @@ ubuntu@ip-0-0-0-0:~$ uaac -v
 UAA client 4.1.0
 ```
 ## Control Plane 구성을 위한 IAM 계정 생성
-### IAM 계정 생성
-Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic access 체크
-
-
-### IAM 권한
+### IAM 권한 생성 (bbl-policy)
 ```
 {
     "Version": "2012-10-17",
@@ -114,6 +110,9 @@ Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic acc
     ]
 }
 ```
+### IAM 계정 생성
+Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic access 체크
+정책을 bbl-policy 설정
 
 
 # 참고
