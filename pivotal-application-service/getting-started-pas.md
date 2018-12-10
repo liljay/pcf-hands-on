@@ -1,12 +1,13 @@
 # Pivotal Application Service on AWS
 AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 
-# 사전 준비 사항
+## 사전 준비 사항
 * AWS 계정 생성 - https://aws.amazon.com/ko/premiumsupport/knowledge-center/create-and-activate-aws-account
 * 공개 도메인 (소유하고 있는 공개 도메인이 없는 경우 구매 필요)
 * AWS Limit Increase 요청 - https://docs.pivotal.io/pivotalcf/2-3/customizing/aws.html
 
-# Jumpbox 생성 및 설정
+## Control Plane 구성
+### Jumpbox 생성 및 설정
 * Ubuntu Server 18.04 LTS (HVM), SSD Volume Type AMI(ami-07ad4b1c3af1ea214) 선택
 * t2.micro 타입 선택
 * 스토리지는 SSD gp2 타입 및 용량 50GB 설정
@@ -17,15 +18,14 @@ AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 Type | Protocol | Port Range | Source               | Description
 SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Network
 ```
-# Control Plane 구성
-## Apt 업데이트 및 workspace 폴더 생성
+#### Apt 업데이트 및 workspace 폴더 생성
 ```
 sudo apt-get update -y
 mkdir ~/workspace
 cd ~/workspace
 ```
 
-## Terraform 설치 (버전 0.11.0 이상)
+#### Terraform 설치 (버전 0.11.0 이상)
 ```
 sudo apt-get install -y unzip
 mkdir ~/workspace/downloads
@@ -36,52 +36,52 @@ chmod +x terraform
 sudo mv terraform /usr/local/bin
 rm terraform*.zip
 ```
-### Terraform 설치 완료 확인
+#### Terraform 설치 완료 확인
 ```
 ubuntu@ip-0-0-0-0:~$ terraform -v
 Terraform v0.11.10
 ```
-## Bosh CLI 설치
+### Bosh CLI 설치
 ```
 cd ~/workspace/downloads
 wget -O bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64
 chmod +x bosh
 sudo mv bosh /usr/local/bin
 ```
-### Bosh CLI 설치 완료 확인
+#### Bosh CLI 설치 완료 확인
 ```
 ubuntu@ip-0-0-0-0:~$ bosh -v
 version 5.4.0-891ff634-2018-11-14T00:22:02Z
 
 Succeeded
 ```
-## Bosh create-env 종속성 패키지 설치
+#### Bosh create-env 종속성 패키지 설치
 ```
 sudo apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline libxslt1-dev libyaml-dev libsqlite3-dev sqlite3
 ```
-## Bosh Bootloader(bbl) 설치
+#### Bosh Bootloader(bbl) 설치
 ```
 cd ~/workspace/downloads
 wget -O bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.10.54/bbl-v6.10.54_linux_x86-64
 chmod +x bbl
 sudo mv bbl /usr/local/bin
 ```
-### Bosh Bootloader(bbl) 설치 확인
+#### Bosh Bootloader(bbl) 설치 확인
 ```
 ubuntu@ip-0-0-0-0:~$ bbl -v
 bbl 6.10.54 (linux/amd64)
 ```
-## UAA CLI(uaac) 설치
+#### UAA CLI(uaac) 설치
 ```
 sudo gem install cf-uaac
 ```
-### UAA CLI(uaac) 설치 확인
+#### UAA CLI(uaac) 설치 확인
 ```
 ubuntu@ip-0-0-0-0:~$ uaac -v
 UAA client 4.1.0
 ```
-## Control Plane 구성을 위한 IAM 계정 생성
-### IAM 권한 생성 (bbl-policy)
+#### Control Plane 구성을 위한 IAM 계정 생성
+1. IAM 권한 생성 (bbl-policy)
 ```
 {
     "Version": "2012-10-17",
@@ -104,10 +104,10 @@ UAA client 4.1.0
     ]
 }
 ```
-### IAM 계정 생성
+2. IAM 계정 생성
 * Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 및 Programmatic access 체크
 * 위에서 생성한 bbl-policy 정책을 설정
-### Jumpbox 내 환경 변수 설정
+#### Jumpbox 내 환경 변수 설정
 * BBL_ACCESS_KEY_ID: bbl IAM 계정의 Access Key ID 입력
 * BBL_SECRET_ACCESS_KEY: bbl IAM 계정의 Secret Access Key 입력
 * REGION: PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
@@ -116,6 +116,7 @@ BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
 BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
 REGION=<Your Region>
 ```
+
 
 ### Bosh Bootloader 구성 (bbl up)
 bbl 명령어는 반드시 bbl 폴더 경로에서 실행해줘야함
