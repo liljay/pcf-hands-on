@@ -22,6 +22,7 @@ SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Netwo
 ```
 sudo apt-get update -y
 sudo apt-get install -y unzip
+sudo apt-get install -y jq
 mkdir ~/workspace
 cd ~/workspace
 ```
