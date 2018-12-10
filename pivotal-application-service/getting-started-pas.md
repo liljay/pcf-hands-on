@@ -22,39 +22,54 @@ SSH(22) | <My Ip Address> |
 
 
 # Control Plane 구성
-Apt 업데이트 및 workspace 폴더 생성
+## Apt 업데이트 및 workspace 폴더 생성
 ```
 sudo apt-get update -y
 mkdir ~/workspace
 cd ~/workspace
 ```
 
-Terraform 설치
+## Terraform 설치
 ```
 sudo apt-get install -y unzip
 mkdir ~/workspace/downloads
 cd ~/workspace/downloads
 wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
-unzip terraform_0.11.10_linux_amd64.zip
+unzip terraform*.zip
 chmod +x terraform
 sudo mv terraform /usr/local/bin
 terraform -v
+rm terraform*.zip
 ```
+### Terraform 설치 완료 확인
+```
+ubuntu@ip-0-0-0-0:~/workspace/downloads$ terraform -v
+Terraform v0.11.10
+```
+
 ## Bosh CLI 설치
+```
+cd ~/workspace/downloads
+wget -O bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64
+chmod +x bosh
+sudo mv bosh /usr/local/bin
+bosh -v
+```
+### Bosh CLI 설치 완료 확인
+```
+ubuntu@ip-0-0-0-0:~/workspace/downloads$ bosh -v
+version 5.4.0-891ff634-2018-11-14T00:22:02Z
+
+Succeeded
+```
 
 ## Bosh create-env 종속성 패키지 설치
 
 
-# 2. 
 
-
-```
-PAS_FQDN="https://<your domain>"
-PAS_FQDN
-
-```
 
 # 참고
+* Terraform Download - https://www.terraform.io/downloads.html
 * Bosh Bootloader - https://github.com/cloudfoundry/bosh-bootloader
 * Concourse Bosh Deployment - https://github.com/concourse/concourse-bosh-deployment
 * Concourse with CredHub - https://github.com/pivotalservices/concourse-credhub
