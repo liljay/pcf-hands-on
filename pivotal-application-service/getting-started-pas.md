@@ -63,6 +63,18 @@ Succeeded
 sudo apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline libxslt1-dev libyaml-dev libsqlite3-dev sqlite3
 ```
 
+## Bosh Bootloader(bbl) 설치
+```
+cd ~/workspace/downloads
+wget -O bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.10.54/bbl-v6.10.54_linux_x86-64
+chmod +x bbl
+sudo mv bbl /usr/local/bin
+```
+### Bosh Bootloader(bbl) 설치 확인
+```
+ubuntu@ip-0-0-0-0:~/workspace/downloads$ bbl -v
+bbl 6.10.54 (linux/amd64)
+```
 
 
 
