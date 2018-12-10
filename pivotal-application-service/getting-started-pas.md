@@ -9,10 +9,10 @@ AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 ## Control Plane 구성
 ### Jumpbox 생성 및 설정
 * Ubuntu Server 18.04 LTS (HVM), SSD Volume Type AMI(ami-07ad4b1c3af1ea214) 선택
-* t2.micro 타입 선택
-* 스토리지는 SSD gp2 타입 및 용량 50GB 설정
-* VPC의 서브넷 중 퍼블릭 서브넷 선택
-* Auto-assign Public IP Enable 설정
+* t2.micro 인스턴스 타입 선택
+* 인스턴스 스토리지는 SSD gp2 타입 및 용량 50GB 설정
+* 인스턴스의 VPC의 서브넷은 퍼블릭 서브넷 선택
+* Auto-assign Public IP Enable 선택
 * Jumpbox의 Security Groups에 SSH 포트(22번)에 대해 자신의 IP로 인바운드 설정
 ```
 Type | Protocol | Port Range | Source               | Description
