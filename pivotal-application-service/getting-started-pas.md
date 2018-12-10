@@ -192,8 +192,8 @@ backup_restore_sdk_sha: '2f8f805d5e58f72028394af8e750b2a51a432466'
 EOF
 ```
 ## Concourse를 위한 Stemcell 업로드
+### upload-stemcell-for-concourse.sh 작성
 ```
-cat << EOF > ~/workspace/bbl/upload-stemcell-for-concourse.sh
 export IAAS="$(cat bbl-state.json | jq -r .iaas)"
 if [ "${IAAS}" = "aws" ]; then
   export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_url | cut -d ' ' -f2)"
@@ -212,6 +212,7 @@ EOF
 chmod +x ~/workspace/bbl/upload-stemcell-for-concourse.sh
 ~/workspace/bbl/upload-stemcell-for-concourse.sh
 ```
+## Concourse Stemcell 확인
 
 
 
