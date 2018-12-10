@@ -177,8 +177,8 @@ export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-
 # Concourse 배포
 ## 사전 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
-* CC_ADMIN_USER = <Concourse Admin 계정명>
-* CC_ADMIN_PW = <Concourse Admin 비밀번호>
+* CC_ADMIN_USER = <Concourse 관리자 계정명>
+* CC_ADMIN_PW = <Concourse 관리자 비밀번호>
 
 ## Concourse bosh release clone
 ```
@@ -235,7 +235,7 @@ web_network_name: 'private'
 web_vm_type: 't2.micro'
 web_network_vm_extension: 'lb'
 web_instances: 1
-db_vm_type: 'default'
+db_vm_type: 't2.micro'
 db_persistent_disk_type: '1GB'
 worker_vm_type: 't2.micro'
 deployment_name: 'concourse'
