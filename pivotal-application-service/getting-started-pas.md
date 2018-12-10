@@ -179,7 +179,40 @@ export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-
 ```
 cd ~/workspace/
 git clone https://github.com/concourse/concourse-bosh-deployment
+cd ~/workspace/concourse-bosh-deployment/cluster/operations/
+wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/operations/add-credhub-uaa-to-web.yml
+
+cat << EOF >> ~/workspace/concourse-bosh-deployment/versions.yml
+uaa_release_version: '60'
+uaa_sha: 'a7c14357ae484e89e547f4f207fb8de36d2b0966'
+credhub_release_version: '1.9.3'
+credhub_sha: '648658efdef2ff18a69914d958bcd7ebfa88027a'
+backup_restore_sdk_release_version: '1.9.0'
+backup_restore_sdk_sha: '2f8f805d5e58f72028394af8e750b2a51a432466'
+EOF
 ```
+## Concourse를 위한 Stemcell 업로드
+```
+cat << EOF > ~/workspace/bbl/upload-stemcell-for-concourse.sh
+export IAAS="$(cat bbl-state.json | jq -r .iaas)"
+if [ "${IAAS}" = "aws" ]; then
+  export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_url | cut -d ' ' -f2)"
+  export STEMCELL_URL="https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-xenial-go_agent"
+elif [ "${IAAS}" = "gcp" ]; then
+  export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_ip | cut -d ' ' -f2)"
+  export STEMCELL_URL="https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-xenial-go_agent"
+else # Azure
+  export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_ip | cut -d ' ' -f2)"
+  export STEMCELL_URL="https://bosh.io/d/stemcells/bosh-azure-hyperv-ubuntu-xenial-go_agent"
+fi
+
+bosh upload-stemcell "${STEMCELL_URL}"
+EOF
+
+chmod +x ~/workspace/bbl/upload-stemcell-for-concourse.sh
+~/workspace/bbl/upload-stemcell-for-concourse.sh
+```
+
 
 
 # 참고
