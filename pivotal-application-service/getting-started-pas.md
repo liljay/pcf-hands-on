@@ -111,15 +111,20 @@ UAA client 4.1.0
 }
 ```
 ### IAM 계정 생성
-Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic access 체크
-정책을 bbl-policy 설정
+* Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 및 Programmatic access 체크
+* 위에서 생성한 bbl-policy 정책을 설정
 
-### Bosh Bootloader (배포 설정) 
+### Jumpbox 내 환경 변수 설정
+* 위에서 생성한 bbl IAM 계정의 Access Key ID, Secret Access Key 입력
+* PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
 ```
 BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
 BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
-REGION=ap-northeast-1
+REGION=<Your Region>
+```
+### Bosh Bootloader (배포 설정) 
 
+```
 mkdir ~/workspace/bbl
 cd ~/workspace/bbl
 cat << EOF > bblup.sh 
