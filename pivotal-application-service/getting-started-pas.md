@@ -12,7 +12,7 @@ AWS 상에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 * 스토리지는 SSD gp2 타입 및 용량 50GB 설정
 * VPC의 서브넷 중 퍼블릭 서브넷 선택
 * Auto-assign Public IP Enable 설정
-* Security Groups 설정 중 SSH 포트(22번)에 대해 자신의 IP로 인바운드 설정
+* Jumpbox의 Security Groups에 SSH 포트(22번)에 대해 자신의 IP로 인바운드 설정
 ```
 Type | Protocol | Port Range | Source               | Description
 SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Network
