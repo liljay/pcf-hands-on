@@ -116,9 +116,21 @@ Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic acc
 
 ### Bosh Bootloader (배포 설정) 
 ```
+BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
+BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
+REGION=ap-northeast-1
+
 mkdir ~/workspace/bbl
 cd ~/workspace/bbl
-
+cat << EOF > bblup.sh 
+bbl up --aws-access-key-id $(BBL_ACCESS_KEY_ID) \
+         --aws-secret-access-key $(BBL_SECRET_ACCESS_KEY) \
+         --aws-region ap-northeast-1 \
+         --iaas aws \
+         --lb-type concourse
+EOF
+chmod +x bblup.sh
+./bblup.sh
 ```
 
 # 참고
