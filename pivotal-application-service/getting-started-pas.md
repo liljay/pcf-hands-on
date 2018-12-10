@@ -35,7 +35,6 @@ wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_am
 unzip terraform*.zip
 chmod +x terraform
 sudo mv terraform /usr/local/bin
-terraform -v
 rm terraform*.zip
 ```
 ### Terraform 설치 완료 확인
@@ -50,7 +49,6 @@ cd ~/workspace/downloads
 wget -O bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64
 chmod +x bosh
 sudo mv bosh /usr/local/bin
-bosh -v
 ```
 ### Bosh CLI 설치 완료 확인
 ```
