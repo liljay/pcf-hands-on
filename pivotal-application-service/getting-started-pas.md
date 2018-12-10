@@ -114,6 +114,12 @@ UAA client 4.1.0
 Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic access 체크
 정책을 bbl-policy 설정
 
+### Bosh Bootloader (배포 설정) 
+```
+mkdir ~/workspace/bbl
+cd ~/workspace/bbl
+
+```
 
 # 참고
 * Bosh CLI Download - https://github.com/cloudfoundry/bosh-cli/releases
