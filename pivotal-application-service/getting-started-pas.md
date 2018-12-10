@@ -86,6 +86,34 @@ sudo gem install cf-uaac
 ubuntu@ip-0-0-0-0:~$ uaac -v
 UAA client 4.1.0
 ```
+## Control Plane 구성을 위한 IAM 계정 생성
+### IAM 계정 생성
+Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 -> Programmatic access 체크
+
+
+### IAM 권한
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:*",
+                "elasticloadbalancing:*",
+                "cloudformation:*",
+                "iam:*",
+                "kms:*",
+                "route53:*",
+                "ec2:*",
+                "s3:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 
 # 참고
