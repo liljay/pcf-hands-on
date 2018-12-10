@@ -174,6 +174,12 @@ Concourse LB: bbl-xxx-xx-xxxxx-concourse-lb [bbl-env-xx-xxxx-concourse-lb-xxxxxx
 ```
 export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-1.amazonaws.com
 ```
+# Concourse 배포
+## Concourse bosh release clone
+```
+cd ~/workspace/
+git clone https://github.com/concourse/concourse-bosh-deployment
+```
 
 
 # 참고
