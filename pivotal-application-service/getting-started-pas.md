@@ -17,8 +17,6 @@ AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 Type | Protocol | Port Range | Source               | Description
 SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Network
 ```
-
-
 # Control Plane 구성
 ## Apt 업데이트 및 workspace 폴더 생성
 ```
@@ -43,7 +41,6 @@ rm terraform*.zip
 ubuntu@ip-0-0-0-0:~$ terraform -v
 Terraform v0.11.10
 ```
-
 ## Bosh CLI 설치
 ```
 cd ~/workspace/downloads
@@ -58,12 +55,10 @@ version 5.4.0-891ff634-2018-11-14T00:22:02Z
 
 Succeeded
 ```
-
 ## Bosh create-env 종속성 패키지 설치
 ```
 sudo apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline libxslt1-dev libyaml-dev libsqlite3-dev sqlite3
 ```
-
 ## Bosh Bootloader(bbl) 설치
 ```
 cd ~/workspace/downloads
@@ -76,7 +71,6 @@ sudo mv bbl /usr/local/bin
 ubuntu@ip-0-0-0-0:~$ bbl -v
 bbl 6.10.54 (linux/amd64)
 ```
-
 ## UAA CLI(uaac) 설치
 ```
 sudo gem install cf-uaac
@@ -113,7 +107,6 @@ UAA client 4.1.0
 ### IAM 계정 생성
 * Services -> IAM -> Users -> Add User -> 계정명 bbl 입력 및 Programmatic access 체크
 * 위에서 생성한 bbl-policy 정책을 설정
-
 ### Jumpbox 내 환경 변수 설정
 * BBL_ACCESS_KEY_ID, BBL_SECRET_ACCESS_KEY 변수들에 위에서 생성한 bbl IAM 계정의 Access Key ID, Secret Access Key 입력
 * REGION 변수에 PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
