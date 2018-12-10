@@ -64,6 +64,7 @@ Succeeded
 
 
 # 참고
+* Bosh CLI Download - https://github.com/cloudfoundry/bosh-cli/releases
 * Terraform Download - https://www.terraform.io/downloads.html
 * Bosh Bootloader - https://github.com/cloudfoundry/bosh-bootloader
 * Concourse Bosh Deployment - https://github.com/concourse/concourse-bosh-deployment
