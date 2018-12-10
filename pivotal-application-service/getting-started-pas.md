@@ -138,6 +138,13 @@ chmod +x bblup.sh
 ./bblup.sh
 ```
 
+### 
+Bosh instance 확인
+Jumpbox instance 확인
+
+업로드 된 Stemcell 확인
+
+
 # 참고
 * Bosh CLI Download - https://github.com/cloudfoundry/bosh-cli/releases
 * Terraform Download - https://www.terraform.io/downloads.html
