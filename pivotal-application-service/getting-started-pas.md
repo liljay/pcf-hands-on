@@ -29,7 +29,7 @@ cd ~/workspace
 
 #### Terraform 설치 (버전 0.11.0 이상)
 ```
-mkdir ~/workspace/downloads
+mkdir -p ~/workspace/downloads
 cd ~/workspace/downloads
 wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
 unzip terraform*.zip
