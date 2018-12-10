@@ -142,6 +142,26 @@ eval "$(bbl print-env)"
 * Jumpbox: AWS 콘솔에서 jumpbox/0으로 생성된 인스턴스 확인
 #### Concourse Load Balancer 생성 확인
 * Concourse Load Balancer: bbl-env-xx-xxxxxx-concourse-lb 생성(Network Load Balancer) 확인
+#### Bosh 연결 확인
+```
+ubuntu@ip-0-0-0-0:~$ bosh env
+Using environment 'https://10.0.0.6:25555' as client 'admin'
+
+Name               bosh-bbl-env-titicaca-2018-12-10t06-11z
+UUID               2ab57208-1a1b-4bd4-b9b9-170273c87c46
+Version            268.3.0 (00000000)
+Director Stemcell  ubuntu-xenial/170.9
+CPI                aws_cpi
+Features           compiled_package_cache: disabled
+                   config_server: enabled
+                   local_dns: enabled
+                   power_dns: disabled
+                   snapshots: disabled
+User               admin
+
+Succeeded
+```
+
 
 # 참고
 * Bosh CLI Download - https://github.com/cloudfoundry/bosh-cli/releases
