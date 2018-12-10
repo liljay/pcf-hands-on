@@ -273,6 +273,29 @@ cd ~/workspace/concourse-bosh-deployment/cluster/operations/
 wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/operations/add-credhub-uaa-to-web.yml
 ```
 
+## Concourse 배포
+```
+cd ~/workspace/concourse-bosh-deployment/cluster
+
+cat << EOF > deploy-concourse.sh
+ bosh deploy -d concourse concourse.yml \
+      -l ../versions.yml \
+      -l vars.yml \
+      -o operations/basic-auth.yml \
+      -o operations/privileged-http.yml \
+      -o operations/privileged-https.yml \
+      -o operations/tls.yml \
+      -o aws-tls-vars.yml \
+      -o operations/web-network-extension.yml \
+      -o operations/add-credhub-uaa-to-web.yml \
+      -o operations/worker-ephemeral-disk.yml \
+      -o operations/scale.yml
+EOF
+
+chmod +x deploy-concourse.sh
+./deploy-concourse.sh
+```
+
 
 # 참고
 * Bosh CLI Download - https://github.com/cloudfoundry/bosh-cli/releases
