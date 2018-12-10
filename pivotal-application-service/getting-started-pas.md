@@ -123,7 +123,7 @@ BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
 REGION=<Your Region>
 ```
 
-### Bosh Bootloader
+### Bosh Bootloader 구성 (bbl up)
 
 ```
 mkdir -p ~/workspace/bbl/terraform
@@ -138,13 +138,13 @@ bbl up --aws-access-key-id ${BBL_ACCESS_KEY_ID} \
 EOF
 chmod +x bblup.sh
 ./bblup.sh
+cd ~/workspace/bbl/
+eval "$(bbl print-env)"
 ```
 
-### 
-Bosh instance 확인
-Jumpbox instance 확인
-
-업로드 된 Stemcell 확인
+### Bosh instance 확인
+### Jumpbox instance 확인
+### 업로드 된 Stemcell 확인
 
 
 # 참고
