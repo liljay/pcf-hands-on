@@ -136,9 +136,12 @@ cd ~/workspace/bbl/
 eval "$(bbl print-env)"
 ```
 
-### Bosh instance 확인
-### Jumpbox instance 확인
-### 업로드 된 Stemcell 확인
+### 확인
+#### Bosh 및 Jumpbox 인스턴스 생성 확인
+Bosh: AWS 콘솔에서 bosh/0으로 생성된 인스턴스 확인
+Jumpbox: AWS 콘솔에서 jumpbox/0으로 생성된 인스턴스 확인
+#### Concourse Load Balancer 생성 확인
+Concourse Load Balancer: bbl-env-xx-xxxxxx-concourse-lb 생성 확인
 
 
 # 참고
