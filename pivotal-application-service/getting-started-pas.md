@@ -14,7 +14,8 @@ AWS 상에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 * Auto-assign Public IP Enable 설정
 * Security Groups 설정 중 SSH 포트(22번)에 대해 자신의 IP로 인바운드 설정
 ```
-SSH(22) | <My Ip Address> |
+Type | Protocol | Port Range | Source               | Description
+SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Network
 ```
 
 
@@ -39,7 +40,7 @@ rm terraform*.zip
 ```
 ### Terraform 설치 완료 확인
 ```
-ubuntu@ip-0-0-0-0:~/workspace/downloads$ terraform -v
+ubuntu@ip-0-0-0-0:~$ terraform -v
 Terraform v0.11.10
 ```
 
@@ -52,7 +53,7 @@ sudo mv bosh /usr/local/bin
 ```
 ### Bosh CLI 설치 완료 확인
 ```
-ubuntu@ip-0-0-0-0:~/workspace/downloads$ bosh -v
+ubuntu@ip-0-0-0-0:~$ bosh -v
 version 5.4.0-891ff634-2018-11-14T00:22:02Z
 
 Succeeded
@@ -72,11 +73,19 @@ sudo mv bbl /usr/local/bin
 ```
 ### Bosh Bootloader(bbl) 설치 확인
 ```
-ubuntu@ip-0-0-0-0:~/workspace/downloads$ bbl -v
+ubuntu@ip-0-0-0-0:~$ bbl -v
 bbl 6.10.54 (linux/amd64)
 ```
 
-
+## UAA CLI(uaac) 설치
+```
+sudo gem install cf-uaac
+```
+### UAA CLI(uaac) 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ uaac -v
+UAA client 4.1.0
+```
 
 
 # 참고
