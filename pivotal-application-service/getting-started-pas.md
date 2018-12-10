@@ -29,7 +29,7 @@ mkdir ~/workspace
 cd ~/workspace
 ```
 
-## Terraform 설치
+## Terraform 설치 (버전 0.11.0 이상)
 ```
 sudo apt-get install -y unzip
 mkdir ~/workspace/downloads
