@@ -59,6 +59,10 @@ Succeeded
 ```
 
 ## Bosh create-env 종속성 패키지 설치
+```
+sudo apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline libxslt1-dev libyaml-dev libsqlite3-dev sqlite3
+```
+
 
 
 
