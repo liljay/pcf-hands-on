@@ -122,10 +122,12 @@ BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
 BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
 REGION=<Your Region>
 ```
-### Bosh Bootloader (배포 설정) 
+
+### Bosh Bootloader
 
 ```
-mkdir ~/workspace/bbl
+mkdir -p ~/workspace/bbl/terraform
+wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/bbl-terraform/aws/concourse-lb_override.tf
 cd ~/workspace/bbl
 cat << EOF > bblup.sh 
 bbl up --aws-access-key-id ${BBL_ACCESS_KEY_ID} \
