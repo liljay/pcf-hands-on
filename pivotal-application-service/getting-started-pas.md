@@ -118,7 +118,7 @@ REGION=<Your Region>
 ```
 
 ### Bosh Bootloader 구성 (bbl up)
-
+bbl 명령어는 반드시 bbl 폴더 경로에서 실행해줘야함
 ```
 mkdir -p ~/workspace/bbl/terraform
 wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/bbl-terraform/aws/concourse-lb_override.tf
