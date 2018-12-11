@@ -1,5 +1,5 @@
 # Pivotal Application Service on AWS
-AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
+AWS에서 Pivotal Application Service를 구축하는 핸즈온 입니다.
 
 ## 사전 준비 사항
 * AWS 계정 생성 - https://aws.amazon.com/ko/premiumsupport/knowledge-center/create-and-activate-aws-account
