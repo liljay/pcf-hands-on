@@ -6,13 +6,11 @@ AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 * 공개 도메인 (소유하고 있는 공개 도메인이 없는 경우 구매 필요)
 * AWS Limit Increase 요청 - https://docs.pivotal.io/pivotalcf/2-3/customizing/aws.html
 * Route 53에 도메인 명으로 Hosted Zone 생성
-* Certificate Manager를 통한 인증서 발급
+* Certificate Manager를 통한 인증서 발급 (DNS 인증)
   * \<domain\> 예) example.com
   * \*.\<domain\> 예) \*.example.com
   * \*.apps.\<domain\> 예) \*.apps.example.com
   * \*.system.\<domain\> 예) \*.system.example.com
-  
-## Certificate Manager를 통한 인증서 발급
 
 ## Control Plane 구성
 ### Jumpbox 생성 및 설정
