@@ -5,6 +5,15 @@ AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 * AWS 계정 생성 - https://aws.amazon.com/ko/premiumsupport/knowledge-center/create-and-activate-aws-account
 * 공개 도메인 (소유하고 있는 공개 도메인이 없는 경우 구매 필요)
 * AWS Limit Increase 요청 - https://docs.pivotal.io/pivotalcf/2-3/customizing/aws.html
+* Route 53에 도메인 레코드 등록
+  * \<domain\> 예) example.com
+  * \*.\<domain\> 예) \*.example.com
+  * \*.apps.\<domain\> 예) \*.apps.example.com
+  * \*.system.\<domain\> 예) \*.system.example.com
+* Certificate Manager를 통한 인증서 발급
+  * Route 53에 등록한 레코드와 동일한 도메인 추가 후 DNS 인증으로 인증서 발급
+
+## Certificate Manager를 통한 인증서 발급
 
 ## Control Plane 구성
 ### Jumpbox 생성 및 설정
@@ -296,6 +305,14 @@ EOF
 chmod +x deploy-concourse.sh
 ./deploy-concourse.sh
 ```
+
+## PCF Pipeline clone
+```
+cd ~/workspace
+git clone https://github.com/pivotal-cf/pcf-pipelines.git
+cd ~/workspace/pcf-pipelines/install-pcf/aws
+```
+
 
 
 # 참고
