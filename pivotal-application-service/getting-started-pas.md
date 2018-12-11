@@ -276,12 +276,6 @@ cat << EOF >  ~/workspace/concourse-bosh-deployment/cluster/aws-tls-vars.yml
 EOF
 ```
 
-## CredHub 및 UAA를 Concourse Web에 추가
-```
-cd ~/workspace/concourse-bosh-deployment/cluster/operations/
-wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/operations/add-credhub-uaa-to-web.yml
-```
-
 ## Concourse 배포
 ```
 cd ~/workspace/concourse-bosh-deployment/cluster
