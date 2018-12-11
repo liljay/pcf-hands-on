@@ -5,6 +5,7 @@ AWS 위에 Pivotal Application Service를 구축하는 핸즈온 입니다.
 * AWS 계정 생성 - https://aws.amazon.com/ko/premiumsupport/knowledge-center/create-and-activate-aws-account
 * 공개 도메인 (소유하고 있는 공개 도메인이 없는 경우 구매 필요)
 * AWS Limit Increase 요청 - https://docs.pivotal.io/pivotalcf/2-3/customizing/aws.html
+* Route 53에 도메인 명으로 Hosted Zone 생성
 * Certificate Manager를 통한 인증서 발급
   * \<domain\> 예) example.com
   * \*.\<domain\> 예) \*.example.com
