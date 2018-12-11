@@ -20,9 +20,7 @@ SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Netwo
 ```
 #### Apt 업데이트 및 workspace 폴더 생성
 ```
-sudo apt-get update -y
-sudo apt-get install -y unzip
-sudo apt-get install -y jq
+sudo apt-get update -y && sudo apt-get install -y unzip jq
 mkdir ~/workspace
 cd ~/workspace
 ```
