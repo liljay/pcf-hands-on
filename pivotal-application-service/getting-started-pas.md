@@ -305,6 +305,21 @@ chmod +x deploy-concourse.sh
 ./deploy-concourse.sh
 ```
 
+## Fly CLI 설치
+```
+cd ~/workspace/downloads
+wget -O fly https://github.com/concourse/concourse/releases/download/v4.2.1/fly_linux_amd64
+chmod +x fly
+sudo mv fly /usr/local/bin
+```
+
+## Fly CLI 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ fly -v
+4.2.1
+```
+
+
 ## PCF Pipeline clone
 ```
 cd ~/workspace
