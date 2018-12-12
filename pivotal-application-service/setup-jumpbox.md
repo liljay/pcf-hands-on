@@ -12,7 +12,6 @@
 Type | Protocol | Port Range | Source               | Description
 SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Network
 ```
-
 ## Jumpbox 내 환경 구성
 ### 필수 패키지 설치 및 디렉토리 생성
 ```
@@ -24,31 +23,30 @@ sudo apt-get update -y && sudo apt-get install -y unzip jq \
 * Concourse Bosh Deployment - PCF를 구성하기 위한 CI/CD 도구 Bosh 릴리즈 저장소
 * Concourse CredHub - Concourse의 Web(ATC) VM에 있는 CredHub에 접근하기 위한 저장소
 * PCF Pipelines - PCF를 구성하기 위한 Concourse 파이프라인 저장소
-
 ```
 cd ~/workspace/ && \
 git clone https://github.com/concourse/concourse-bosh-deployment.git && \
 git clone https://github.com/pivotalservices/concourse-credhub.git && \
 git clone https://github.com/pivotal-cf/pcf-pipelines.git
-
 ```
-
-
-#### Bosh Bootloader(bbl) CLI
-Bosh를 쉽게 구성 할 수 있도록 도움을 주는 커맨드 라인 도구 입니다.
+#### Terraform 설치 (버전 0.11.0 이상)
+Control Plane을 AWS에 구성하기 위해 사용 되는 도구 입니다.
 ```
+mkdir -p ~/workspace/downloads
 cd ~/workspace/downloads
-wget -O bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.10.54/bbl-v6.10.54_linux_x86-64
-chmod +x bbl
-sudo mv bbl /usr/local/bin
+wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
+unzip terraform*.zip
+chmod +x terraform
+sudo mv terraform /usr/local/bin
+rm terraform*.zip
 ```
-#### Bosh Bootloader(bbl) CLI 설치 확인
+#### Terraform 설치 확인
 ```
-ubuntu@ip-0-0-0-0:~$ bbl -v
-bbl 6.10.54 (linux/amd64)
+ubuntu@ip-0-0-0-0:~$ terraform -v
+Terraform v0.11.10
 ```
 #### Bosh create-env 종속성 패키지 설치
-Bosh create-env 명령어를 통해 Bosh 인스턴스를 구성하며 이 명령어를 위해 필요한 종속성 패키지들을 설치합니다.
+Bosh create-env 명령어를 통해 Bosh 인스턴스를 구성하며 이 명령어를 위해 필요한 종속성 패키지들을 설치 합니다.
 ```
 sudo apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline-dev libxslt1-dev libyaml-dev libsqlite3-dev sqlite3
 ```
@@ -67,5 +65,16 @@ version 5.4.0-891ff634-2018-11-14T00:22:02Z
 
 Succeeded
 ```
-
-
+#### Bosh Bootloader(bbl) CLI
+Bosh를 쉽게 구성 할 수 있도록 도움을 주는 커맨드 라인 도구 입니다.
+```
+cd ~/workspace/downloads
+wget -O bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.10.54/bbl-v6.10.54_linux_x86-64
+chmod +x bbl
+sudo mv bbl /usr/local/bin
+```
+#### Bosh Bootloader(bbl) CLI 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ bbl -v
+bbl 6.10.54 (linux/amd64)
+```
