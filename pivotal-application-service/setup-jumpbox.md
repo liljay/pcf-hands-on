@@ -66,16 +66,44 @@ version 5.4.0-891ff634-2018-11-14T00:22:02Z
 
 Succeeded
 ```
-#### Bosh Bootloader(bbl) CLI
+#### Bosh Bootloader(bbl) CLI 설치
 Bosh를 쉽게 구성 할 수 있도록 도움을 주는 커맨드 라인 도구 입니다.
 ```
-cd ~/workspace/downloads
-wget -O bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.10.54/bbl-v6.10.54_linux_x86-64
-chmod +x bbl
+cd ~/workspace/downloads && \
+wget -O bbl https://github.com/cloudfoundry/bosh-bootloader/releases/download/v6.10.54/bbl-v6.10.54_linux_x86-64 && \
+chmod +x bbl && \
 sudo mv bbl /usr/local/bin
 ```
 #### Bosh Bootloader(bbl) CLI 설치 확인
 ```
 ubuntu@ip-0-0-0-0:~$ bbl -v
 bbl 6.10.54 (linux/amd64)
+```
+#### CredHub CLI 설치
+민감한 정보(패스워드, 유저 정보, 인증서 등)들을 저장하고 있는 저장소로 민감한 정보들을 넣거나 조회 할 수 있습니다.
+Concourse에서 파이프라인 배포시 CredHub에서 민감한 정보들을 로드하여 보안을 강화 시켜서 파이프라인을 진행 할 수 있게 해줍니다.
+```
+cd ~/workspace/downloads
+wget https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/2.2.0/credhub-linux-2.2.0.tgz
+tar xvf credhub*.tgz
+chmod +x credhub
+sudo mv credhub /usr/local/bin
+```
+#### Credhub CLI 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ credhub --version
+CLI Version: 2.2.0
+```
+#### Fly CLI 설치
+Concourse를 위한 유틸리티 도구 입니다.
+```
+cd ~/workspace/downloads
+wget -O fly https://github.com/concourse/concourse/releases/download/v4.2.1/fly_linux_amd64
+chmod +x fly
+sudo mv fly /usr/local/bin
+```
+#### Fly CLI 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ fly -v
+4.2.1
 ```
