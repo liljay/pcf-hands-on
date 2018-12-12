@@ -107,3 +107,13 @@ sudo mv fly /usr/local/bin
 ubuntu@ip-0-0-0-0:~$ fly -v
 4.2.1
 ```
+#### UAA CLI(uaac) 설치
+UAA CLI는 UAA에 접근하기 위한 유틸리티 도구 입니다.
+```
+sudo gem install cf-uaac
+```
+#### UAA CLI(uaac) 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ uaac -v
+UAA client 4.1.0
+```
