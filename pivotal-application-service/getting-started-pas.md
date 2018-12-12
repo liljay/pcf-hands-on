@@ -11,6 +11,12 @@ AWS에서 Pivotal Application Service를 구축하는 핸즈온 입니다.
   * \*.\<domain\> 예) \*.example.com
   * \*.apps.\<domain\> 예) \*.apps.example.com
   * \*.system.\<domain\> 예) \*.system.example.com
+* Pivotal 계정 생성
+  * https://network.pivotal.io/ > Register
+* Pivotal 계정 생성 후 LEGACY API TOKEN 확인
+  * https://network.pivotal.io/ > Sign In > 화면 우측 상단 이름 클릭 > Edit Profile 클릭 > LEGACY API TOKEN [DEPRECATED] 값 확인
+
+## Jumpbox 구성
 
 ## Control Plane 구성
 ### Jumpbox 생성 및 설정
