@@ -207,10 +207,10 @@ export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-
 # Concourse 배포
 ## 사전 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
-* CC_ADMIN_USER = <Concourse 관리자 계정명>
+* CC_ADMIN_USERNAME = <Concourse 관리자 계정명>
 * CC_ADMIN_PW = <Concourse 관리자 비밀번호>
 ```
-export CC_ADMIN_USER=<Your Concourse Admin Username>
+export CC_ADMIN_USERNAME=<Your Concourse Admin Username>
 export CC_ADMIN_PW=<Your Concourse Admin Password>
 ```
 
@@ -263,7 +263,7 @@ cat << EOF > ~/workspace/concourse-bosh-deployment/cluster/vars.yml
 external_host: "${EXTERNAL_HOST}"
 external_url: "https://${EXTERNAL_HOST}"
 local_user:
-    username: "${CC_ADMIN_USER}"
+    username: "${CC_ADMIN_USERNAME}"
     password: "${CC_ADMIN_PW}"
 network_name: 'private'
 web_network_name: 'private'
