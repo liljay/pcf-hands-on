@@ -95,7 +95,7 @@ ubuntu@ip-0-0-0-0:~$ credhub --version
 CLI Version: 2.2.0
 ```
 #### Fly CLI 설치
-Concourse를 위한 유틸리티 도구 입니다.
+Concourse 파이프라인 관리를 위한 유틸리티 도구 입니다.
 ```
 cd ~/workspace/downloads
 wget -O fly https://github.com/concourse/concourse/releases/download/v4.2.1/fly_linux_amd64
