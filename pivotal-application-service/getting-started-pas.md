@@ -123,9 +123,9 @@ UAA client 4.1.0
 * BBL_SECRET_ACCESS_KEY: bbl IAM 계정의 Secret Access Key 입력
 * REGION: PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
 ```
-BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
-BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
-REGION=<Your Region>
+export BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
+export BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
+export REGION=<Your Region>
 ```
 
 
