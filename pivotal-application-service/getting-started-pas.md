@@ -334,6 +334,13 @@ ubuntu@ip-0-0-0-0:~$ fly -v
 4.2.1
 ```
 
+## Concourse Credhub clone
+```
+cd ~/workspace/
+git clone https://github.com/pivotalservices/concourse-credhub.git
+cd ~/workspace/concourse-credhub
+```
+
 
 ## PCF Pipeline clone
 ```
