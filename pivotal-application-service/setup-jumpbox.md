@@ -17,7 +17,9 @@ SSH  | TCP      | 22         | <Your IP Address>/32 | SSH Access from Your Netwo
 ```
 sudo apt-get update -y && sudo apt-get install -y unzip jq \
 && mkdir -p ~/workspace/bbl/terraform \ 
-&& mkdir -p ~/workspace/downloads 
+&& cd ~/workspace/bbl/terraform \
+&& wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/bbl-terraform/aws/concourse-lb_override.tf \
+&& mkdir -p ~/workspace/downloads
 ```
 ### 필수 Github 저장소 복제
 * Concourse Bosh Deployment - PCF를 구성하기 위한 CI/CD 도구 Bosh 릴리즈 저장소
