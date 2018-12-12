@@ -135,7 +135,6 @@ bbl 명령어는 반드시 bbl 폴더 경로에서 실행해줘야 합니다.
 mkdir -p ~/workspace/bbl/terraform
 cd ~/workspace/bbl/terraform
 wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/bbl-terraform/aws/concourse-lb_override.tf
-wget https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/bbl-terraform/aws/aws_concourse_lb_credhub.tf
 cd ~/workspace/bbl
 cat << 'EOF' > bblplan.sh
 bbl plan --aws-access-key-id ${BBL_ACCESS_KEY_ID} \
