@@ -90,6 +90,18 @@ chmod +x ~/workspace/bbl/upload-stemcell-for-concourse.sh
 cd ~/workspace/bbl
 ./upload-stemcell-for-concourse.sh
 ```
+## Concourse 배포를 위해 필요한 Stemcell 업로드 확인
+```
+ubuntu@ip-0-0-0-0:~$ bosh stemcells -d concourse
+Using environment 'https://10.0.0.6:25555' as client 'admin'
+
+Name                                     Version  OS             CPI  CID
+bosh-aws-xen-hvm-ubuntu-xenial-go_agent  170.13*  ubuntu-xenial  -    ami-0f231230440ca86ad
+
+(*) Currently deployed
+
+1 stemcells
+```
 ## Concourse 배포 스크립트 생성
 ```
 cd ~/workspace/concourse-bosh-deployment/cluster
