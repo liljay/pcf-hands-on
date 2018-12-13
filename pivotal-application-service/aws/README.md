@@ -1,4 +1,4 @@
-# Pivotal Application Service on AWS
+# Installing Pivotal Application Service on AWS
 AWS에서 Pivotal Application Service를 구축하는 핸즈온 입니다.
 ## 핸즈온 순서
 * [사전 준비 사항](/pivotal-application-service/aws/prerequisites.md)
