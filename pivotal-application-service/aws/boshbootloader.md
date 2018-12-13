@@ -11,7 +11,7 @@ cd ~/workspace/bbl
 cat << 'EOF' > bblup.sh 
 bbl up --aws-access-key-id ${BBL_ACCESS_KEY_ID} \
          --aws-secret-access-key ${BBL_SECRET_ACCESS_KEY} \
-         --aws-region ${REGION} \
+         --aws-region ${AWS_REGION} \
          --iaas aws \
          --lb-type concourse
 EOF
@@ -24,7 +24,7 @@ cd ~/workspace/bbl
 cat << 'EOF' > bbldown.sh 
 bbl down --aws-access-key-id ${BBL_ACCESS_KEY_ID} \
          --aws-secret-access-key ${BBL_SECRET_ACCESS_KEY} \
-         --aws-region ${REGION} \
+         --aws-region ${AWS_REGION} \
          --iaas aws \
          --lb-type concourse
 EOF
