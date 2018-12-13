@@ -61,6 +61,17 @@ User               admin
 
 Succeeded
 ```
+# Bosh Bootloader Load Balancer 호스트 값 확인
+```
+cd ~/workspace/bbl
+ubuntu@ip-0-0-0-0:~/workspace/bbl$ bbl lbs
+Concourse LB: bbl-xxx-xx-xxxxx-concourse-lb [bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-1.amazonaws.com]
+```
+# EXTERNAL_HOST 환경 변수 설정
+bbl lbs 명령어 실행 결과의 [] 안에 있는 값으로 EXTERNAL_HOST 환경 변수 설정
+```
+export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-1.amazonaws.com
+```
 # AWS 콘솔에서 인스턴스 확인
 Bosh Bootloader를 통해 Bosh를 구성하면 2개의 인스턴스 및 1개의 네트워크 로드 밸런서가 생성 됩니다.
 * EC2 인스턴스
