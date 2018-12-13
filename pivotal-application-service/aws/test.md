@@ -11,7 +11,7 @@ source ~/workspace/concourse-credhub/target-concourse-credhub.sh
 
 ##
 ```
-ubuntu@ip-10-0-1-250:~/workspace/concourse-credhub$ source ./target-concourse-credhub.sh
+ubuntu@ip-0-0-0-0:~/workspace/concourse-credhub$ source ./target-concourse-credhub.sh
 Connecting to Credhub on BOSH Director....
 Setting the target url: https://10.0.0.6:8844
 Login Successful
