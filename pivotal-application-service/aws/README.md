@@ -7,3 +7,4 @@ AWS에서 Pivotal Application Service를 구축하는 핸즈온 입니다.
   * [Bosh Bootloader 구성](/pivotal-application-service/aws/bosh-bootloader.md)
   * [Concourse 구성](/pivotal-application-service/aws/concourse.md)
 * Pivotal Application Service 구성
+* [Control Plane 및 Pivotal Application Service 구성 제거](/pivotal-application-service/aws/clean-up-environment.md)
