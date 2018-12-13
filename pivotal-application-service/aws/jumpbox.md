@@ -1,5 +1,5 @@
 # Jumpbox 구성
-Jumpbox를 구성하여 핸즈온을 진행 합니다.
+Jumpbox를 구성하여 Control Plane 및 Pivotal Application Service를 구축한다.
 
 ## Jumpbox 생성 조건
 * Ubuntu Server 18.04 LTS (HVM), SSD Volume Type AMI(ami-07ad4b1c3af1ea214) 선택
