@@ -111,7 +111,7 @@ EOF
 
 chmod +x deploy-concourse.sh
 ```
-## Concourse 구성 실행
+## Concourse 배포
 ```
 cd ~/workspace/concourse-bosh-deployment/cluster
 ./deploy-concourse.sh
