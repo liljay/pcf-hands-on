@@ -118,3 +118,21 @@ sudo gem install cf-uaac
 ubuntu@ip-0-0-0-0:~$ uaac -v
 UAA client 4.1.0
 ```
+#### Jumpbox 내 핸즈온을 위한 환경 변수 설정
+##### Control Plane 구성을 위한 IAM 계정 및 리전 설정
+* BBL_ACCESS_KEY_ID: bbl IAM 계정의 Access Key ID 입력
+* BBL_SECRET_ACCESS_KEY: bbl IAM 계정의 Secret Access Key 입력
+* REGION: PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
+```
+export BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
+export BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
+export REGION=<Your Region>
+```
+##### Concourse 관리자 계정 환경 변수 설정
+* Jumpbox에서 아래의 환경 변수 사전 설정 필요
+* CC_ADMIN_USERNAME = <Concourse 관리자 계정명>
+* CC_ADMIN_PW = <Concourse 관리자 비밀번호>
+```
+export CC_ADMIN_USERNAME=<Your Concourse Admin Username>
+export CC_ADMIN_PW=<Your Concourse Admin Password>
+```
