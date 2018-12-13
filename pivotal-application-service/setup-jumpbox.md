@@ -33,7 +33,7 @@ git clone https://github.com/pivotal-cf/pcf-pipelines.git
 ```
 ### 필수 CLI 도구 설치
 #### Terraform 설치 (버전 0.11.0 이상)
-Control Plane을 AWS에 구성하기 위해 사용 되는 도구 입니다.
+Control Plane을 AWS에 구성하기 위해 사용 되는 커맨드 라인 도구 입니다.
 ```
 mkdir -p ~/workspace/downloads
 cd ~/workspace/downloads
@@ -82,8 +82,7 @@ ubuntu@ip-0-0-0-0:~$ bbl -v
 bbl 6.10.54 (linux/amd64)
 ```
 #### CredHub CLI 설치
-민감한 정보(패스워드, 유저 정보, 인증서 등)들을 저장하고 있는 저장소로 민감한 정보들을 넣거나 조회 할 수 있습니다.
-Concourse에서 파이프라인 배포시 CredHub에서 민감한 정보들을 로드하여 보안을 강화 시켜서 파이프라인을 진행 할 수 있게 해줍니다.
+CredHub 관리를 위한 커맨드 라인 도구 입니다.
 ```
 cd ~/workspace/downloads
 wget https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/2.2.0/credhub-linux-2.2.0.tgz
@@ -97,7 +96,7 @@ ubuntu@ip-0-0-0-0:~$ credhub --version
 CLI Version: 2.2.0
 ```
 #### Fly CLI 설치
-Concourse 파이프라인 관리를 위한 유틸리티 도구 입니다.
+Concourse 파이프라인 관리를 위한 커맨드 라인 도구 입니다.
 ```
 cd ~/workspace/downloads
 wget -O fly https://github.com/concourse/concourse/releases/download/v4.2.1/fly_linux_amd64
@@ -110,7 +109,7 @@ ubuntu@ip-0-0-0-0:~$ fly -v
 4.2.1
 ```
 #### UAA CLI(uaac) 설치
-UAA CLI는 UAA에 접근하기 위한 유틸리티 도구 입니다.
+UAA CLI는 UAA에 접근하기 위한 커맨드 라인 도구 입니다.
 ```
 sudo gem install cf-uaac
 ```
