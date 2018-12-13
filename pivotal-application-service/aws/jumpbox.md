@@ -31,7 +31,7 @@ git clone https://github.com/concourse/concourse-bosh-deployment.git && \
 git clone https://github.com/pivotalservices/concourse-credhub.git && \
 git clone https://github.com/pivotal-cf/pcf-pipelines.git
 ```
-### 필수 CLI 도구 설치
+### 필수 도구 설치
 #### Terraform 설치 (버전 0.11.0 이상)
 Control Plane을 AWS에 구성하기 위해 사용 되는 커맨드 라인 도구 입니다.
 ```
