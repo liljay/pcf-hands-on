@@ -61,4 +61,16 @@ User               admin
 
 Succeeded
 ```
-# Bosh Bootloader
+# AWS 콘솔에서 인스턴스 확인
+Bosh Bootloader를 통해 Bosh를 구성하면 2개의 인스턴스 및 1개의 네트워크 로드 밸런서가 생성 됩니다.
+* EC2 인스턴스
+  * Bosh/0: Control Plane Bosh
+  * Jumpbox/0: Control Plane Jumpbox
+* ELB 
+  * bbl-env-\<random-value\>-\<random-values\>-concourse-lb: Concourse Load Balancer (Network Load Balancer)
+  * 리스너 및 타겟 그룹 확인
+    * 80, 443: Concourse Web(ATC)에 접근 하기 위한 포트
+    * 2222: Concourse의 Worker들을 Web(ATC)에 등록 및 Worker들이 접근 하기 위한 포트
+    * 8443: Concourse의 UAA에 접근 하기 위한 포트
+    * 8844: Concourse의 CredHub에 접근 하기 위한 포트
+         
