@@ -122,7 +122,7 @@ Concourse 배포 후 총 5개의 VM들이 생성 됩니다.
 * bosh deployment -d concourse 명령어를 통해 Name이 concourse인 배포가 있는지 확인
 * bosh vms -d concourse 명령어를 통해 배포된 concourse의 VM 상태들이 running인지 확인
 ```
-ubuntu@ip-0-0-0-0:~$ bosh deployments
+ubuntu@ip-0-0-0-0:~$ bosh deployment -d concourse
 Using environment 'https://10.0.0.6:25555' as client 'admin'
 
 Name       Release(s)          Stemcell(s)                                     Config(s)        Team(s)
@@ -137,7 +137,7 @@ concourse  bosh-dns/1.10.0     bosh-aws-xen-hvm-ubuntu-xenial-go_agent/170.13  1
 
 Succeeded
 
-ubuntu@ip-0-0-0-0:~$ bosh vms
+ubuntu@ip-0-0-0-0:~$ bosh vms -d concourse
 Using environment 'https://10.0.0.6:25555' as client 'admin'
 
 Task 21. Done
