@@ -6,8 +6,9 @@ Control Plane 및 Pivotal Application Service가 정상 배포된 경우 아래�
 * Bosh Bootloader를 통해 생성된 Control Plane Bosh, jumpbox, Concourse LB 제거
   * bbl down
 
-## PCF Pipeline 진행 중 create-infrastructure에 Terraform 관련 에러 발생시
-install-pcf 파이프라인에서 create-infrastructure 단계에서 실패하는 경우 아래와 같이 진행해야 합니다.
+## PCF Pipeline 진행 중 create-infrastructure 단계에서 Terraform 에러 발생시 리소스 제거 방법
+install-pcf 파이프라인에서 create-infrastructure 단계에서 실패하는 경우 
+Terraform이 만든 리소스는 수동 삭제 해야하며 아래와 같이 진행해야 합니다.
 ### create-infrastructure 단계에서 Terraform이 생성한 리소스 삭제
 \<terraform-prefix\>는 PCF Pipeline 배포시 params.yml의 terraform_prefix 변수에 지정된 값 입니다.
 
