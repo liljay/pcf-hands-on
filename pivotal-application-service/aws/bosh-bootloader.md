@@ -72,7 +72,7 @@ bbl lbs 명령어 실행 결과의 [] 안에 있는 값으로 EXTERNAL_HOST 환�
 ```
 export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-1.amazonaws.com
 ```
-# AWS 콘솔에서 인스턴스 확인
+# AWS 콘솔에서 인스턴스 및 로드 밸런서 
 Bosh Bootloader를 통해 Bosh를 구성하면 2개의 인스턴스 및 1개의 네트워크 로드 밸런서가 생성 됩니다.
 * EC2 인스턴스
   * Bosh/0: Control Plane Bosh
