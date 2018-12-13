@@ -75,8 +75,8 @@ export EXTERNAL_HOST=bbl-env-xx-xxxx-concourse-lb-xxxxxxxxxxxx.elb.ap-northeast-
 # AWS 콘솔에서 인스턴스 및 로드 밸런서 
 Bosh Bootloader를 통해 Bosh를 구성하면 2개의 인스턴스 및 1개의 네트워크 로드 밸런서가 생성 됩니다.
 * EC2 인스턴스
-  * Bosh/0: Control Plane Bosh
-  * Jumpbox/0: Control Plane Jumpbox
+  * bosh/0: Control Plane Bosh
+  * jumpbox/0: Control Plane Jumpbox
 * ELB 
   * bbl-env-\<random-value\>-\<random-values\>-concourse-lb: Concourse Load Balancer
   * 리스너 및 타겟 그룹 확인
