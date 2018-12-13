@@ -63,6 +63,33 @@ cat << EOF >  ~/workspace/concourse-bosh-deployment/cluster/aws-tls-vars.yml
       organization: atcOrg
 EOF
 ```
+
+## Concourse 배포를 위해 필요한 Stemcell 업로드 스크립트 생성
+```
+cd ~/workspace/bbl
+cat << 'EOF' > ~/workspace/bbl/upload-stemcell-for-concourse.sh
+export IAAS="$(cat bbl-state.json | jq -r .iaas)"
+if [ "${IAAS}" = "aws" ]; then
+  export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_url | cut -d ' ' -f2)"
+  export STEMCELL_URL="https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-xenial-go_agent"
+elif [ "${IAAS}" = "gcp" ]; then
+  export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_ip | cut -d ' ' -f2)"
+  export STEMCELL_URL="https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-xenial-go_agent"
+else # Azure
+  export EXTERNAL_HOST="$(bbl outputs | grep concourse_lb_ip | cut -d ' ' -f2)"
+  export STEMCELL_URL="https://bosh.io/d/stemcells/bosh-azure-hyperv-ubuntu-xenial-go_agent"
+fi
+
+bosh upload-stemcell "${STEMCELL_URL}"
+EOF
+
+chmod +x ~/workspace/bbl/upload-stemcell-for-concourse.sh
+```
+## Concourse 배포를 위해 필요한 Stemcell 업로드
+```
+cd ~/workspace/bbl
+./upload-stemcell-for-concourse.sh
+```
 ## Concourse 배포 스크립트 생성
 ```
 cd ~/workspace/concourse-bosh-deployment/cluster
@@ -89,4 +116,3 @@ chmod +x deploy-concourse.sh
 cd ~/workspace/concourse-bosh-deployment/cluster
 ./deploy-concourse.sh
 ```
-
