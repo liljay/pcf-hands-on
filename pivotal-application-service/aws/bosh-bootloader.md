@@ -30,7 +30,7 @@ bbl down --aws-access-key-id ${BBL_ACCESS_KEY_ID} \
 EOF
 chmod +x bbldown.sh
 ```
-# Bosh Bootloader를 통한 Bosh 구성 
+# Bosh Bootloader를 통한 Control Plane Bosh 배포 
 bblup.sh 스크립트를 통해 Control Plane Bosh를 생성합니다.
 ```
 cd ~/workspace/bbl
