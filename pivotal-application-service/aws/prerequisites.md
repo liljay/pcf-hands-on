@@ -29,30 +29,7 @@
                 "route53:*",
                 "ec2:*",
                 "s3:*"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-* PCF 구성을 위한 IAM 계정 및 권한 생성 (Access Key ID 및 Secret Access Key가 필요하므로 Programmatic Access 체크 후 IAM 계정 생성)
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "logs:*",
-                "elasticloadbalancing:*",
-                "cloudformation:*",
-                "iam:*",
-                "kms:*",
-                "route53:*",
-                "ec2:*",
-                "s3:*",
-                "rds:*"
+                "rds:*"                
             ],
             "Resource": "*"
         }
