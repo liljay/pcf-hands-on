@@ -9,7 +9,7 @@ Control Plane 및 Pivotal Application Service가 정상 배포된 경우 아래�
 ## PCF Pipeline 진행 중 create-infrastructure에 Terraform 관련 에러 발생시
 install-pcf 파이프라인에서 create-infrastructure 단계에서 실패하는 경우 아래와 같이 진행해야 합니다.
 ### create-infrastructure 단계에서 Terraform이 생성한 리소스 삭제
-terraform-prefix는 PCF Pipeline 배포시 params.yml의 terraform_prefix 변수에 지정된 값 입니다.
+\<terraform-prefix\>는 PCF Pipeline 배포시 params.yml의 terraform_prefix 변수에 지정된 값 입니다.
 
 * Route 53
   * \*.apps.\<domain\> - CNAME 레코드
