@@ -121,13 +121,10 @@ UAA client 4.1.0
 #### Jumpbox 내 핸즈온을 위한 환경 변수 설정
 ##### Control Plane 구성을 위한 IAM 계정 및 리전 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
-* BBL_ACCESS_KEY_ID: bbl IAM 계정의 Access Key ID 입력
-* BBL_SECRET_ACCESS_KEY: bbl IAM 계정의 Secret Access Key 입력
-* AWS_REGION: PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
 ```
-export BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
-export BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
-export AWS_REGION=<Your Region>
+export BBL_ACCESS_KEY_ID=<bbl IAM 계정의 Access Key ID 입력>
+export BBL_SECRET_ACCESS_KEY=<bbl IAM 계정의 Secret Access Key 입력>
+export AWS_REGION=<PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력>
 ```
 ##### AWS PAS 용도 인증서, PAS 용도 S3 버킷, 도메인, 도메인에 대한 Route 53 Hosted Zone ID, PAS 용도 리소스 접두사 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
@@ -140,9 +137,7 @@ export TERRAFORM_PREFIX = <Terraform이 PAS 구성시 생성하는 리소스들�
 ```
 ##### Concourse 관리자 계정 환경 변수 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
-* CC_ADMIN_USERNAME = <Concourse 관리자 계정명>
-* CC_ADMIN_PW = <Concourse 관리자 비밀번호>
 ```
-export CC_ADMIN_USERNAME=<Your Concourse Admin Username>
-export CC_ADMIN_PW=<Your Concourse Admin Password>
+export CC_ADMIN_USERNAME=<Concourse 관리자 계정명>
+export CC_ADMIN_PW=<Concourse 관리자 비밀번호>
 ```
