@@ -116,3 +116,43 @@ chmod +x deploy-concourse.sh
 cd ~/workspace/concourse-bosh-deployment/cluster
 ./deploy-concourse.sh
 ```
+
+## Concourse 배포 확인
+Concourse 배포 후 총 5개의 VM들이 생성 됩니다.
+* bosh deployment -d concourse 명령어를 통해 Name이 concourse인 배포가 있는지 확인
+* bosh vms -d concourse 명령어를 통해 배포된 concourse의 VM 상태들이 running인지 확인
+```
+ubuntu@ip-0-0-0-0:~$ bosh deployments
+Using environment 'https://10.0.0.6:25555' as client 'admin'
+
+Name       Release(s)          Stemcell(s)                                     Config(s)        Team(s)
+concourse  bosh-dns/1.10.0     bosh-aws-xen-hvm-ubuntu-xenial-go_agent/170.13  1 cloud/default  -
+           concourse/4.2.1                                                     2 runtime/dns
+           credhub/1.9.3
+           garden-runc/1.16.3
+           postgres/30
+           uaa/60
+
+1 deployments
+
+Succeeded
+
+ubuntu@ip-0-0-0-0:~$ bosh vms
+Using environment 'https://10.0.0.6:25555' as client 'admin'
+
+Task 21. Done
+
+Deployment 'concourse'
+
+Instance                                     Process State  AZ  IPs        VM CID               VM Type   Active
+db/d8972961-9f4e-45a6-8872-ed0f15e2d3a7      running        z1  10.0.16.5  i-08f2cba620a71d59c  t2.micro  true
+web/9792de26-2b7f-400a-baf6-b4ef478b9fec     running        z1  10.0.16.4  i-066931fd2ca7bbdba  t2.micro  true
+worker/310b25ec-1335-4d08-93b4-81745b74f031  running        z1  10.0.16.6  i-0093c80c9a544bc81  t2.micro  true
+worker/7231ceac-3722-4954-a6b1-4657cacf0d57  running        z1  10.0.16.7  i-0b46ffbdf6fdb5578  t2.micro  true
+worker/860352bb-8020-414c-ae06-4651ff57ff0e  running        z1  10.0.16.8  i-02852570172a48946  t2.micro  true
+
+5 vms
+
+Succeeded
+
+```
