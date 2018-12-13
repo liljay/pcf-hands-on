@@ -49,7 +49,7 @@ Terraform이 만든 리소스는 수동 삭제 해야하며 아래와 같이 진
   * Policy: \<terraform prefix\>_PcfAdminPolicy
   * Instance Profile: \<terraform prefix\>_pcf_admin_role_instance_profile
 * 인스턴스 프로파일 삭제 방법
-인스턴스 프로파일은 AWS 콘솔에서 삭제 할 수 없으며 AWS CLI를 통해 조회 및 삭제해야 한다.
+  * 인스턴스 프로파일은 AWS 콘솔에서 삭제 할 수 없으며 AWS CLI를 통해 조회 및 삭제해야 한다.
   * \<terraform prefix\>_pcf_admin_role_instance_profile 이름을 가진 인스턴스 프로파일 있는지 확인
     * aws iam list-instance-profiles
   * 인스턴스 프로파일 존재 여부 확인 후 인스턴스 프로파일 삭제 
