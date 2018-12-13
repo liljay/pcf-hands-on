@@ -122,11 +122,11 @@ UAA client 4.1.0
 ##### Control Plane 구성을 위한 IAM 계정 및 리전 설정
 * BBL_ACCESS_KEY_ID: bbl IAM 계정의 Access Key ID 입력
 * BBL_SECRET_ACCESS_KEY: bbl IAM 계정의 Secret Access Key 입력
-* REGION: PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
+* AWS_REGION: PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력
 ```
 export BBL_ACCESS_KEY_ID=<Your BBL Access Key ID>
 export BBL_SECRET_ACCESS_KEY=<Your BBL Secret Access Key>
-export REGION=<Your Region>
+export AWS_REGION=<Your Region>
 ```
 ##### Concourse 관리자 계정 환경 변수 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
