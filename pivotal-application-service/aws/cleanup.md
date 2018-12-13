@@ -31,7 +31,7 @@ install-pcf 파이프라인에서 create-infrastructure 단계에서 실패하�
   * \<terraform prefix\>-packages
   * \<terraform prefix\>-resources
   * \<terraform prefix\>-buildpacks
-  * PCF pipeline에 포함된 params.yml 내용 중 S3_OUTPUT_BUCKET에 지정한 버킷의 루트 경로의 terraform.tfstate 삭제
+  * PCF pipeline에 포함된 params.yml 내용 중 S3_OUTPUT_BUCKET에 지정한 버킷 내 terraform.tfstate 파일 삭제
 * VPC
   * \<terraform prefix\>-terraform-pcf-vpc
 
