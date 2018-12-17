@@ -155,7 +155,6 @@ apps_domain: apps.<PCF 도메인명>   # e.g. apps.pcf.example.com
 # PCF Elastic Runtime minor version to track
 ert_major_minor_version: ^2\.3\.[0-9]+$ # ERT minor version to track (e.g ^2\.1\.[0-9]+$ will track 2.0.x versions)
 ```
-
 #### Git Private Key 및 haproxy 비활성화 지정
 * Git Private Key
   * SSH를 통한 Git 접속이 필요하므로 CredHub에서 SSH 인증서를 생성한다.
@@ -170,12 +169,75 @@ git_private_key: <Git Private Key>
 haproxy_forward_tls: disable # If enabled HAProxy will forward all requests to the router over TLS (enable|disable)
 haproxy_backend_ca:         # Required if haproxy_forward_tls is enabled - HAProxy will use the CA provided to verify the certificates provided by the router.
 ```
-
-#### MySQL 모니터링 이메일 입력
+#### MySQL 모니터링 이메일 지정
 * 필수로 입력해줘야 하는 항목이며 적당한 이메일 주소를 지정한다.
 ```
 # Email address for sending mysql monitor notifications
 mysql_monitor_recipient_email: user@example.com
+```
+#### Ops Manager 계정 지정
+Ops Manager에서 사용할 관리자 계정 지정
+```
+# Operations Manager credentials
+# opsman_admin_username/opsman_admin_password needs to be specified
+opsman_admin_username: <Ops Man Admin 계정명>
+opsman_admin_password: <Ops Man Admin 계정 비밀번호>
+```
+
+#### Ops Manager 접속 허용 IP 범위 지정
+```
+# CIDRs to allow HTTPS access to Operations Manager from
+opsman_allow_https_cidr_ranges: 0.0.0.0/0
+
+# CIDRs to allow SSH access to Operations Manager from; configure PEM as well with the private key
+opsman_allow_ssh_cidr_ranges: 0.0.0.0/0
+```
+#### Ops Manager 접속 도메인 지정
+* Ops Manager 웹 콘솔 접속시 사용할 도메인을 지정해줘야 합니다.
+```
+# The domain to access Operations Manager;
+opsman_domain_or_ip_address: opsman.<PCF 도메인>.com #This must be your pcf_ert_domain with "opsman." as a prefix. For example, opsman.pcf.example.com
+```
+#### Ops Manager 버전 지정
+* PCF 버전에 맞는 Ops Manager의 버전을 지정해줘야 합니다.
+  * Ops Manager, PCF 버전 호환성 - https://docs.pivotal.io/resources/product-compatibility-matrix.pdf
+```
+# PCF Ops Manager minor version to track
+opsman_major_minor_version: ^2\.3\.[0-9]+$ # Ops Manager minor version to track (e.g ^2\.1\.[0-9]+$ will track 2.0.x versions)
+```
+#### Pivotal Network Token 지정
+* network.pivotal.io 접속 및 로그인 > 우측 상단 계정 클릭 > Edit Profile 클릭 > LEGACY API TOKEN [DEPRECATED] 값 확인
+```
+# Pivnet token for downloading resources from Pivnet. Find this token at https://network.pivotal.io/users/dashboard/edit-profile
+pivnet_token: <Pivotal Network Token 지정>
+```
+#### Route 53 Zone ID 지정
+PCF에서 사용할 Route 53의 Zone ID를 입력
+```
+ROUTE_53_ZONE_ID: <Route 53 Zone ID 지정>
+```
+#### S3 버킷 지정
+* S3_ENDPOINT: S3의 엔드포인트 입력
+* S3_OUTPUT_BUCKET: PAS 테라폼 상태 저장 버킷 지정
+```
+# For terraform state file (http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+S3_ENDPOINT: https://s3.<region>.amazonaws.com
+S3_OUTPUT_BUCKET: <PAS 테라폼 상태 저장 버킷>
+```
+#### security_acknowledgement(보안 승인) 값을 X로 지정
+```
+# Setting appropriate Application Security Groups is critical for a secure
+# deployment. Change the value of the param below to "X" to acknowledge that
+# once the Elastic Runtime deployment completes, you will review and set the
+# appropriate application security groups.
+# See https://docs.pivotal.io/pivotalcf/opsguide/app-sec-groups.html
+security_acknowledgement: X
+```
+#### PAS 배포시 생성된 리소스에 대한 테라폼 접두사 지정
+```
+# Prefix to use for Terraform-managed infrastructure, e.g. 'pcf-terraform'
+# Must be globally unique.
+terraform_prefix: <테라폼 접두사 지정>
 ```
 
 
