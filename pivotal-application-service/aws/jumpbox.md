@@ -126,15 +126,6 @@ export BBL_ACCESS_KEY_ID=<bbl IAM 계정의 Access Key ID 입력>
 export BBL_SECRET_ACCESS_KEY=<bbl IAM 계정의 Secret Access Key 입력>
 export AWS_REGION=<PCF를 구축할 리전명 (ap-northeast1, ap-northeast-2) 입력>
 ```
-##### AWS PAS 용도 인증서, PAS 용도 S3 버킷, 도메인, 도메인에 대한 Route 53 Hosted Zone ID, PAS 용도 리소스 접두사 설정
-* Jumpbox에서 아래의 환경 변수 사전 설정 필요
-```
-export AWS_CERT_ARN = <PAS 핸즈온에 사용할 도메인들의 인증서 ARN>
-export PAS_DOMAIN = <PAS 핸즈온에 사용할 도메인>
-export ROUTE_53_ZONE_ID = <도메인을 등록한 Route 53 Hosted Zone ID>
-export S3_OUTPUT_BUCKET = <Terraform이 PAS 구성시 Terraform 상태 저장을 위한 S3 버킷>
-export TERRAFORM_PREFIX = <Terraform이 PAS 구성시 생성하는 리소스들의 접두사>
-```
 ##### Concourse 관리자 계정 환경 변수 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
 ```
