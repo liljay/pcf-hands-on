@@ -3,8 +3,8 @@
 * Ops Manager와 PCF 버전 호환성 확인
 https://docs.pivotal.io/resources/product-compatibility-matrix.pdf
 * PAS 테라폼 상태 저장 버킷 생성
-** S3 버킷 생성시 Versioning 기능을 활성화 후 생성
-** PCF Pipeline의 params.yml 내용 중 S3_OUTPUT_BUCKET에 입력하게 됨
+  * S3 버킷 생성시 Versioning 기능을 활성화 후 생성
+  * PCF Pipeline의 params.yml 내용 중 S3_OUTPUT_BUCKET에 입력하게 됨
 
 ## Concourse 내 CredHub에 민감한 정보(AWS 키, 계정 정보 등) 추가
 ### Concourse URL 설정
