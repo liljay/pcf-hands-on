@@ -240,6 +240,77 @@ security_acknowledgement: X
 terraform_prefix: <테라폼 접두사 지정>
 ```
 
+### Concourse에 PAS 배포 파이프라인 추가
+#### Fly CLI를 통한 Concourse 로그인
+```
+fly login -t concourse -c ${CONCOURSE_URL} -u ${CC_ADMIN_USERNAME} -p ${CC_ADMIN_PW} -k
+```
+#### Fly CLI를 통해 Concourse에 PAS 배포 파이프라인 추가
+```
+cd ~/workspace/pcf-pipelines/install-pcf/aws/
+fly -t concourse sp -p install-pcf -c pipeline.yml -l params.yml
+fly -t concourse up -p install-pcf
+```
+#### Concourse 웹 콘솔 접속하여 파이프라인 진행
+* ${CONCOURSE_URL}에 지정된 URL로 웹 콘솔 접속
+* ${CC_ADMIN_USERNAME} 및 ${CC_ADMIN_PW}로 지정했던 Concourse 관리자 계정으로 로그인
+* install-pcf 파이프라인 클릭
+* bootstrap-terraform-state 클릭 후 (+) 버튼을 눌러 진행
+* 좌측 상단의 Concourse 로고 클릭 > install-pcf 파이프라인 클릭 > create-infrastructure 클릭 및 (+) 버튼을 눌러 진행
+** PCF 파이프라인 진행시 테라폼 오류가 발생하면 아래의 단계로 리소스 삭제 후 배포 파이프라인을 다시 추가해야 한다.
+
+#### PCF Pipeline 진행 중 create-infrastructure 단계에서 Terraform 에러 발생시 리소스 제거 방법
+install-pcf 파이프라인에서 create-infrastructure 단계에서 실패하는 경우 
+Terraform이 만든 리소스는 수동 삭제 해야하며 아래와 같이 진행해야 합니다.
+##### create-infrastructure 단계에서 Terraform이 생성한 리소스 삭제
+\<terraform-prefix\>는 PCF Pipeline 배포시 params.yml의 terraform_prefix 변수에 지정된 값 입니다.
+* Route 53
+  * \*.apps.\<domain\> - CNAME 레코드
+  * \*.system.\<domain\> - CNAME 레코드
+  * opsman.\<domain\> - A 레코드
+  * ssh.system.\<domain\> - CNAME 레코드
+* EC2
+  * \<terraform prefix\>-OpsMan az1 
+  * \<terraform prefix\>-NAT Instance az1
+  * \<terraform prefix\>-NAT Instance az2
+  * \<terraform prefix\>-NAT Instance az3
+* ELB
+  * \<terraform prefix\>-Pcf-Http-Elb
+  * \<terraform prefix\>-Pcf-Ssh-Elb
+  * \<terraform prefix\>-Pcf-Tcp-Elb
+* S3
+  * \<terraform prefix\>-bosh
+  * \<terraform prefix\>-droplets
+  * \<terraform prefix\>-packages
+  * \<terraform prefix\>-resources
+  * \<terraform prefix\>-buildpacks
+  * PCF pipeline에 포함된 params.yml 내용 중 S3_OUTPUT_BUCKET에 지정한 버킷 내 terraform.tfstate 파일 삭제
+* VPC
+  * \<terraform prefix\>-terraform-pcf-vpc
+* RDS
+  * 인스턴스 - \<terraform prefix\>-pcf
+  * 서브넷 그룹 - \<terraform prefix\>-rds_subnet_group
+* Security Groups
+  * \<terraform prefix\>-RDS Security Group
+  * \<terraform prefix\>-PcfHttpElb Security Group
+  * \<terraform prefix\>-Ops Manager Director Security Group
+  * \<terraform prefix\>-PcfSshElb Security Group
+  * \<terraform prefix\>-NAT instance security group
+  * \<terraform prefix\>-PCF VMs Security Group 
+* IAM
+  * User: \<terraform prefix\>_pcf_iam_user
+  * Role: \<terraform prefix\>_pcf_admin_role
+  * Policy: \<terraform prefix\>_PcfAdminPolicy
+  * Instance Profile: \<terraform prefix\>_pcf_admin_role_instance_profile
+* 인스턴스 프로파일 삭제 방법
+  * 인스턴스 프로파일은 AWS 콘솔에서 삭제 할 수 없으며 AWS CLI를 통해 조회 및 삭제해야 한다.
+  * \<terraform prefix\>_pcf_admin_role_instance_profile 이름을 가진 인스턴스 프로파일 있는지 확인
+    * aws iam list-instance-profiles
+  * 인스턴스 프로파일 존재 여부 확인 후 인스턴스 프로파일 삭제 
+    * aws iam delete-instance-profile --instance-profile-name \<terraform prefix\>_pcf_admin_role_instance_profile
+##### Concourse에 배포했던 PCF Pipeline 삭제 및 재배포
+* fly -t <target> dp -p install-pcf
+* fly -t <target> sp -p install-pcf -c pipeline.yml -l params.yml
 
 
 
