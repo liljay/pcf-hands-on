@@ -71,8 +71,8 @@ params.yml 내용 중 CHANGEME에 해당하는 내용은 수정이 필요합니�
 
 #### NAT 인스턴스 AMI ID 지정
 * AWS NAT 인스턴스 AMI ID를 지정해줍니다.
-  * 도쿄 리전(ap-northeast-1) = "ami-03cf3903"
-  * 서울 리전(ap-northeast-2) = "ami-8e0fa6e0"
+  * 도쿄 리전(ap-northeast-1) = ami-03cf3903
+  * 서울 리전(ap-northeast-2) = ami-8e0fa6e0
 ```
 # AMI to use for nat box
 # Update with the correct NAT AMI for your region. List of AMIs can be found
