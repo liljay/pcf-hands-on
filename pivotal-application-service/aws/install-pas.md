@@ -205,6 +205,15 @@ opsman_domain_or_ip_address: opsman.<PCF 도메인>.com #This must be your pcf_e
 # PCF Ops Manager minor version to track
 opsman_major_minor_version: ^2\.3\.[0-9]+$ # Ops Manager minor version to track (e.g ^2\.1\.[0-9]+$ will track 2.0.x versions)
 ```
+
+#### Ops Manager에서 사용할 PEM 키 값 지정
+* CredHub을 통해 aws_key_name에서 지정한 PEM 키 값을 추가해준다.
+  *  credhub set -t rsa -n /concourse/main/install-pcf/pcf-pem -p <PEM 키 경로>
+```
+# Private Key of the keypair uploaded to AWS to be used for Operations Manager, NAT VMs.
+PEM: <PEM 키 값 지정>
+```
+
 #### Pivotal Network Token 지정
 * network.pivotal.io 접속 및 로그인 > 우측 상단 계정 클릭 > Edit Profile 클릭 > LEGACY API TOKEN [DEPRECATED] 값 확인
 ```
