@@ -171,5 +171,14 @@ haproxy_forward_tls: disable # If enabled HAProxy will forward all requests to t
 haproxy_backend_ca:         # Required if haproxy_forward_tls is enabled - HAProxy will use the CA provided to verify the certificates provided by the router.
 ```
 
+#### MySQL 모니터링 이메일 입력
+* 필수로 입력해줘야 하는 항목이며 적당한 이메일 주소를 지정한다.
+```
+# Email address for sending mysql monitor notifications
+mysql_monitor_recipient_email: user@example.com
+```
+
+
+
 
 
