@@ -137,6 +137,8 @@ db_uaa_password: CHANGEME
 db_uaa_username: CHANGEME
 ```
 #### PAS DB의 마스터 계정 지정
+* PAS DB는 MariaDB RDS로 생성 되므로 계정 및 패스워드는 1~16자의 영숫자 문자로 구성합니다.
+  * https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints
 ```
 # RDS Master Credentials - Required
 db_master_password: <DB 계정명>
