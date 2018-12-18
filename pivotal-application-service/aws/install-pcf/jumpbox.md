@@ -118,6 +118,19 @@ sudo gem install cf-uaac
 ubuntu@ip-0-0-0-0:~$ uaac -v
 UAA client 4.1.0
 ```
+### CF CLI 설치
+```
+cd ~/workspace/downloads
+curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=6.41.0&source=github-rel" | tar -zx
+rm LICENSE
+rm NOTICE
+sudo mv cf /usr/local/bin
+```
+### CF CLI 설치 확인
+```
+ubuntu@ip-0-0-0-0:~$ cf -v
+cf version 6.41.0+dd4c76cdd.2018-11-28
+```
 #### Jumpbox 내 핸즈온을 위한 환경 변수 설정
 ##### Control Plane 구성을 위한 IAM 계정 및 리전 설정
 * Jumpbox에서 아래의 환경 변수 사전 설정 필요
