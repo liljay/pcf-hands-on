@@ -1,5 +1,5 @@
 # Concourse 구성
-Concourse는 Control Plane의 CI/CD 도구이며 PCF 파이프라인을 통해 PCF를 배포 합니다.
+Concourse는 Control Plane의 CI/CD 도구이며 PCF 파이프라인을 통해 PAS를 배포 합니다.
 ## Concourse 배포시 UAA, CredHub, backup restore sdk을 포함하여 배포하도록 설정
 * add-credhub-uaa-to-web.yml: Concourse Web(ATC)에 CredHub을 배포하기 위한 yaml
 * versions.yml: 배포할 릴리즈들의 버전을 명시하는 yaml
